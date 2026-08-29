@@ -6,7 +6,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from sitegen import Site, render
+from sitegen import Site, render, video
 from theme import CSS, FAVICON
 from content import klussen as C_KLUS
 from content import voorbereiding as C_VOOR
@@ -101,6 +101,14 @@ def kk_blok(tekst=None):
     return ('<div class="uitgelicht"><h2>Uitbesteden zonder aannemer</h2><p>%s</p>'
             '<p class="knoprij"><a class="knop" href="%s" rel="nofollow noopener" '
             'target="_blank">Kleine-Klussen.nl</a></p></div>' % (tekst, KK))
+
+
+# Shorts van het YouTube-kanaal van Kleine-Klussen, per klus waar die aansluit.
+VIDEOS = {
+    'zolder-verbouwen': ('IlUWfKCR034', 'Een velux dakraam vervangen'),
+    'badkamer-verbouwen': ('BpgexVbsPTo', 'Een kitnaad vervangen'),
+    'isolatie-woning': ('1RK4v7Gx-g8', 'Een warmtepompboiler plaatsen'),
+}
 
 
 def kaart(titel, href, tekst, meta=''):
@@ -246,8 +254,11 @@ site.add('/klussen/', T('Grote klussen: overzicht per type klus'),
          klus_index, h1='Grote klussen', priority='0.9')
 
 for slug, titel, desc, md in C_KLUS.KLUSSEN:
-    body = ('<section class="smal"><h1>%s</h1>%s%s</section>'
-            % (titel, render(md), kk_blok()))
+    vid = ''
+    if slug in VIDEOS:
+        vid = ('<h2>In beeld</h2>' + video(VIDEOS[slug][0], VIDEOS[slug][1]))
+    body = ('<section class="smal"><h1>%s</h1>%s%s%s</section>'
+            % (titel, render(md), vid, kk_blok()))
     site.add('/klussen/%s/' % slug, T('%s: werk, kosten en doorlooptijd' % titel),
              desc, body, h1=titel)
 
@@ -672,9 +683,15 @@ die nodig zijn om de site te tonen en te beveiligen, waaronder het IP-adres, het
 van het verzoek, de opgevraagde pagina en het type browser. Die verwerking vindt plaats op
 grond van een gerechtvaardigd belang: het beschikbaar en veilig houden van de website.
 
-Er wordt geen bezoekersstatistiek van derden geladen, geen advertentienetwerk, geen
-socialemediaknop en geen ingesloten inhoud van andere partijen. De pagina's laden geen
-externe bestanden.
+Er wordt geen bezoekersstatistiek van derden geladen, geen advertentienetwerk en geen
+socialemediaknop. De pagina's laden uit zichzelf geen externe bestanden.
+
+### Bij het afspelen van een video
+Op enkele pagina's staat een video van het YouTube-kanaal van Kleine-Klussen. Die video
+wordt niet meegeladen met de pagina. Er staat een knop, en pas na een klik daarop wordt de
+video opgehaald bij youtube-nocookie.com. Vanaf dat moment verwerkt YouTube, onderdeel van
+Google, gegevens zoals het IP-adres en het apparaattype, en geldt het privacybeleid van die
+partij. Wie niet klikt, laadt niets.
 
 ### Bij e-mail
 Wie mailt naar info@grootinkluswerk.nl, verstuurt daarmee een e-mailadres en de inhoud van
@@ -735,9 +752,18 @@ Laatste wijziging: 29 augustus 2026.
 
 ## Geen cookies
 
-Grootinkluswerk.nl plaatst geen cookies. Er is geen analysepakket, geen advertentienetwerk,
-geen socialemediaknop en geen ingesloten inhoud van derden. Daarom staat er ook geen
-cookiemelding op deze site: een toestemmingsvraag zonder cookies heeft geen functie.
+Grootinkluswerk.nl plaatst zelf geen cookies. Er is geen analysepakket, geen
+advertentienetwerk en geen socialemediaknop. Daarom staat er geen cookiemelding op deze
+site: een toestemmingsvraag zonder cookies heeft geen functie.
+
+## Video's
+
+Op enkele pagina's staat een video van het YouTube-kanaal van Kleine-Klussen. Die video
+laadt niet mee met de pagina. Er staat een knop, en pas na een klik daarop wordt de video
+opgehaald bij youtube-nocookie.com, de variant van YouTube die geen cookies plaatst voor
+gepersonaliseerde advertenties. YouTube kan daarbij wel gegevens vastleggen die nodig zijn
+om de video af te spelen, en op dat moment geldt het privacybeleid van YouTube en Google.
+Wie de knop niet gebruikt, laadt geen enkel bestand van YouTube.
 
 ## Wat er technisch wel gebeurt
 
