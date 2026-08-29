@@ -40,7 +40,7 @@
 <h2>Wat er misgaat</h2>
 <ul><li>Isoleren zonder ventileren. Een dichte woning zonder luchtverversing levert vocht en schimmel op. Ventilatie hoort bij het plan, niet erna.</li><li>Spouwmuurisolatie in een spouw met doorslag of vochtproblemen. Eerst de oorzaak, dan de isolatie.</li><li>Dakisolatie zonder dampremmende laag aan de warme zijde, met condens in de constructie als gevolg.</li><li>Een vloer isoleren terwijl de kruipruimte nat blijft.</li></ul>
 <h2>Btw</h2>
-<p>Voor het aanbrengen van isolatiemateriaal aan woningen ouder dan twee jaar geldt onder voorwaarden het verlaagde btw-tarief over de arbeid. De actuele regels staan op https://www.belastingdienst.nl</p><div class="uitgelicht"><h2>Uitbesteden zonder aannemer</h2><p>Niet elke klus vraagt om een aannemer. Voor losse klussen als een lamp ophangen, meubelmontage, een kraan vervangen of een klemmende deur is een vakman per klus of per uur in te plannen bij Kleine-Klussen.nl. Online een datum en tijdslot kiezen, daarna komt een vakman uit het netwerk langs.</p><p class="knoprij"><a class="knop" href="https://www.kleine-klussen.nl/" rel="nofollow noopener" target="_blank">Kleine-Klussen.nl</a></p></div></section>
+<p>Voor het aanbrengen van isolatiemateriaal aan woningen ouder dan twee jaar geldt onder voorwaarden het verlaagde btw-tarief over de arbeid. De actuele regels staan op https://www.belastingdienst.nl</p><h2>In beeld</h2><figure class="video" data-video="1RK4v7Gx-g8"><button type="button" class="videostart"><span class="videoplay" aria-hidden="true"></span><span class="videotekst">Een warmtepompboiler plaatsen</span><span class="videobron">Kleine-Klussen.nl op YouTube</span></button><figcaption>De video staat op YouTube en wordt pas na een klik geladen, via youtube-nocookie.com. Vanaf dat moment geldt het privacybeleid van YouTube.</figcaption></figure><div class="uitgelicht"><h2>Uitbesteden zonder aannemer</h2><p>Niet elke klus vraagt om een aannemer. Voor losse klussen als een lamp ophangen, meubelmontage, een kraan vervangen of een klemmende deur is een vakman per klus of per uur in te plannen bij Kleine-Klussen.nl. Online een datum en tijdslot kiezen, daarna komt een vakman uit het netwerk langs.</p><p class="knoprij"><a class="knop" href="https://www.kleine-klussen.nl/" rel="nofollow noopener" target="_blank">Kleine-Klussen.nl</a></p></div></section>
 </main>
 <footer class="voet">
   <div class="binnen voetgrid">
@@ -90,10 +90,29 @@
 <script>
 (function(){
   var b=document.querySelector('.menuknop'),n=document.getElementById('hoofdmenu');
-  if(!b||!n)return;
-  b.addEventListener('click',function(){
-    var open=n.classList.toggle('open');
-    b.setAttribute('aria-expanded',open?'true':'false');
+  if(b&&n){
+    b.addEventListener('click',function(){
+      var open=n.classList.toggle('open');
+      b.setAttribute('aria-expanded',open?'true':'false');
+    });
+  }
+  document.querySelectorAll('.video').forEach(function(f){
+    var knop=f.querySelector('.videostart');
+    if(!knop)return;
+    knop.addEventListener('click',function(){
+      var id=f.getAttribute('data-video');
+      var d=document.createElement('div');
+      d.className='videoframe';
+      var i=document.createElement('iframe');
+      i.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
+      i.title=knop.querySelector('.videotekst').textContent;
+      i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      i.setAttribute('allowfullscreen','');
+      i.setAttribute('loading','lazy');
+      i.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+      d.appendChild(i);
+      knop.replaceWith(d);
+    });
   });
 })();
 </script>
