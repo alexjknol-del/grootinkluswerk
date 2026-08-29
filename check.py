@@ -7,6 +7,7 @@ from collections import Counter
 
 DIST = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist')
 
+EIGEN_HOST = 'grootinkluswerk.nl'
 TOEGESTANE_HOSTS = {'www.kleine-klussen.nl'}
 TOEGESTANE_ANKERS = {
     'kleine-klussen.nl',
@@ -50,6 +51,7 @@ for pad in bestanden:
     url = url.replace(os.sep, '/')
     paden.add(url if url.endswith('/') else url + '/')
 
+videos = {}
 titels = Counter()
 descripties = Counter()
 inkomend = Counter()
@@ -120,6 +122,25 @@ for pad in sorted(bestanden):
         hit = re.search(r'.{0,45}(?<![\w-])u(?![\w-]).{0,45}', tekst)
         fouten.append('%s: aanspreekvorm "u" -> %s' % (rel, hit.group(0).strip()))
 
+
+    # geen externe bronnen in de opgeleverde html
+    for m in re.finditer(r'\s(?:src|srcset|data-src)="(https?://[^"]+)"', h):
+        fouten.append('%s: externe bron in de html: %s' % (rel, m.group(1)))
+    for m in re.finditer(r'<link[^>]+href="(https?://[^"]+)"', h):
+        if not m.group(1).startswith('https://%s' % EIGEN_HOST):
+            fouten.append('%s: externe stylesheet of link: %s' % (rel, m.group(1)))
+
+    # videoblokken
+    for m in re.finditer(r'data-video="([^"]*)"', h):
+        vid = m.group(1)
+        videos.setdefault(vid, []).append(rel)
+        if not re.fullmatch(r'[A-Za-z0-9_-]{11}', vid):
+            fouten.append('%s: ongeldig video-id %r' % (rel, vid))
+    if 'data-video=' in h and 'youtube-nocookie.com/embed/' not in h:
+        fouten.append('%s: videoblok zonder afspeelscript' % rel)
+    if 'data-video=' in h and '<iframe' in h:
+        fouten.append('%s: iframe staat al in de html, video laadt dus zonder klik' % rel)
+
     # links
     for m in re.finditer(r'<a\s([^>]*)>(.*?)</a>', h, re.S):
         attrs, label = m.group(1), strip_tags(m.group(2)).strip()
@@ -152,6 +173,10 @@ for pad in sorted(bestanden):
             else:
                 inkomend[doel] += 1
 
+for vid, paden_ in videos.items():
+    if len(paden_) > 1:
+        waarschuwingen.append('video %s staat op meerdere pagina\'s: %s' % (vid, paden_))
+
 for titel, n in titels.items():
     if n > 1:
         fouten.append('dubbele title (%dx): %s' % (n, titel))
@@ -173,7 +198,8 @@ if ontbreekt:
 if overbodig:
     fouten.append('staat ten onrechte in sitemap: %s' % sorted(overbodig))
 
-print('%d html-bestanden gecontroleerd, %d unieke url\'s' % (len(bestanden), len(paden)))
+print('%d html-bestanden gecontroleerd, %d unieke url\'s, %d video\'s'
+      % (len(bestanden), len(paden), len(videos)))
 if waarschuwingen:
     print('\nWaarschuwingen (%d):' % len(waarschuwingen))
     for w in waarschuwingen:
