@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verbouwbudget berekenen | Grootinkluswerk.nl</title>
+<meta name="description" content="Rekenhulp die bouwkosten omzet in een totaalbudget, inclusief ontwerp, leges, onvoorzien en bijkomende kosten. Draait volledig in de browser.">
+<link rel="canonical" href="https://grootinkluswerk.nl/hulpmiddelen/verbouwbudget/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="Grootinkluswerk.nl">
+<meta property="og:title" content="Verbouwbudget berekenen | Grootinkluswerk.nl">
+<meta property="og:description" content="Rekenhulp die bouwkosten omzet in een totaalbudget, inclusief ontwerp, leges, onvoorzien en bijkomende kosten. Draait volledig in de browser.">
+<meta property="og:url" content="https://grootinkluswerk.nl/hulpmiddelen/verbouwbudget/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Grootinkluswerk.nl nieuws" href="/rss.xml">
+<link rel="stylesheet" href="/stijl.css">
+
+
+</head>
+<body>
+<a class="overslaan" href="#hoofd">Naar de inhoud</a>
+<header class="kop">
+  <div class="binnen kopbalk">
+    <a class="merk" href="/">Grootinkluswerk<span>.nl</span></a>
+    <button class="menuknop" aria-expanded="false" aria-controls="hoofdmenu">Menu</button>
+    <nav id="hoofdmenu" aria-label="Hoofdmenu"><ul><li><a href="/klussen/">Klussen</a></li><li><a href="/voorbereiding/">Voorbereiding</a></li><li><a href="/kosten/">Kosten</a></li><li><a href="/hulpmiddelen/">Hulpmiddelen</a></li><li><a href="/nieuws/">Nieuws</a></li><li><a href="/over/">Over</a></li><li><a href="/contact/">Contact</a></li></ul></nav>
+  </div>
+</header>
+<main id="hoofd">
+<nav class="kruimels" aria-label="Kruimelpad"><a href="/">Home</a> <span class="sep">/</span> <a href="/hulpmiddelen/">Hulpmiddelen</a> <span class="sep">/</span> <span>Verbouwbudget berekenen</span></nav>
+
+<section class="smal">
+<h1>Verbouwbudget berekenen</h1>
+<p>Deze rekenhulp zet de bouwkosten om in een totaalbudget, inclusief de posten die het
+vaakst vergeten worden. De uitkomst is een indicatie op basis van gangbare percentages,
+geen offerte.</p>
+
+<div class="tool">
+  <label for="bouwsom">Geschatte bouwkosten, aanneemsom in euro</label>
+  <input type="number" id="bouwsom" value="40000" min="0" step="500">
+
+  <label for="ontwerp">Ontwerp, tekenwerk en constructie</label>
+  <select id="ontwerp">
+    <option value="0">Niet nodig, geen tekening of berekening</option>
+    <option value="0.05">Beperkt, alleen een constructieberekening (5 procent)</option>
+    <option value="0.09" selected>Tekening en berekening (9 procent)</option>
+    <option value="0.12">Ontwerp, tekening, berekening en begeleiding (12 procent)</option>
+  </select>
+
+  <label for="vergunning">Vergunning en leges</label>
+  <select id="vergunning">
+    <option value="0" selected>Vergunningvrij</option>
+    <option value="0.03">Vergunningplichtig, leges circa 3 procent van de bouwsom</option>
+    <option value="0.05">Vergunningplichtig in een complexe situatie, circa 5 procent</option>
+  </select>
+
+  <label for="onvoorzien">Post onvoorzien</label>
+  <select id="onvoorzien">
+    <option value="0.10">Woning na 1990, 10 procent</option>
+    <option value="0.12" selected>Woning tussen 1970 en 1990, 12 procent</option>
+    <option value="0.15">Woning van voor 1970, 15 procent</option>
+  </select>
+
+  <label for="extra">Container, opslag en tijdelijke huisvesting in euro</label>
+  <input type="number" id="extra" value="600" min="0" step="50">
+
+  <div class="uitkomst" id="uitkomst" aria-live="polite"></div>
+  <p class="let">De berekening draait in de browser. Er wordt niets opgeslagen en niets
+  verstuurd. Percentages zijn gangbare praktijkwaarden en geen norm.</p>
+</div>
+
+<h2>Toelichting per post</h2>
+<p>De aanneemsom is het bedrag dat de aannemer offreert voor het werk zelf. Daar komen
+kosten bij die niet in die offerte staan.</p>
+<ul>
+<li><strong>Ontwerp en berekening.</strong> Een constructieberekening kost 500 tot 1.500 euro. Bij een uitbouw of een ingrijpende verbouwing komen tekenwerk en soms begeleiding daarbovenop.</li>
+<li><strong>Leges.</strong> Gemeenten rekenen een percentage van de bouwsom. Dat percentage verschilt per gemeente en staat in de legesverordening.</li>
+<li><strong>Onvoorzien.</strong> Bedoeld voor wat achter de wand tevoorschijn komt, niet voor keuzes die tijdens het werk duurder uitvallen.</li>
+<li><strong>Overig.</strong> Afvalcontainer, opslag van inboedel en eventueel tijdelijke huisvesting.</li>
+</ul>
+<p>Meer achtergrond staat op <a href="/voorbereiding/budget-en-onvoorzien/">budget en
+onvoorzien</a> en op <a href="/kosten/">wat kost een verbouwing</a>.</p>
+</section>
+<script>
+(function(){
+  var v=function(id){return parseFloat(document.getElementById(id).value)||0;};
+  var euro=function(n){return n.toLocaleString('nl-NL',{style:'currency',currency:'EUR',maximumFractionDigits:0});};
+  function reken(){
+    var bouw=v('bouwsom');
+    var ontwerp=bouw*parseFloat(document.getElementById('ontwerp').value);
+    var leges=bouw*parseFloat(document.getElementById('vergunning').value);
+    var onv=bouw*parseFloat(document.getElementById('onvoorzien').value);
+    var extra=v('extra');
+    var totaal=bouw+ontwerp+leges+onv+extra;
+    document.getElementById('uitkomst').innerHTML=
+      '<b>'+euro(totaal)+'</b>'+
+      '<p>Bouwkosten '+euro(bouw)+'<br>'+
+      'Ontwerp en berekening '+euro(ontwerp)+'<br>'+
+      'Vergunning en leges '+euro(leges)+'<br>'+
+      'Onvoorzien '+euro(onv)+'<br>'+
+      'Container, opslag en huisvesting '+euro(extra)+'</p>';
+  }
+  ['bouwsom','ontwerp','vergunning','onvoorzien','extra'].forEach(function(id){
+    var el=document.getElementById(id);
+    el.addEventListener('input',reken);el.addEventListener('change',reken);
+  });
+  reken();
+})();
+</script>
+</main>
+<footer class="voet">
+  <div class="binnen voetgrid">
+    <div>
+      <p class="voetmerk">Grootinkluswerk.nl</p>
+      <p>Onafhankelijke gids over grote klussen en verbouwingen in Nederland.</p>
+      <p><a href="mailto:info@grootinkluswerk.nl">info@grootinkluswerk.nl</a></p>
+    </div>
+    
+<div>
+  <h4>Grote klussen</h4>
+  <ul>
+    <li><a href="/klussen/badkamer-verbouwen/">Badkamer verbouwen</a></li>
+    <li><a href="/klussen/keuken-plaatsen/">Keuken plaatsen</a></li>
+    <li><a href="/klussen/uitbouw-aanbouw/">Uitbouw of aanbouw</a></li>
+    <li><a href="/klussen/zolder-verbouwen/">Zolder verbouwen</a></li>
+    <li><a href="/klussen/isolatie-woning/">Woning isoleren</a></li>
+  </ul>
+</div>
+<div>
+  <h4>Voorbereiding</h4>
+  <ul>
+    <li><a href="/voorbereiding/offertes-vergelijken/">Offertes vergelijken</a></li>
+    <li><a href="/voorbereiding/aannemer-kiezen/">Aannemer kiezen</a></li>
+    <li><a href="/voorbereiding/vergunning-en-melding/">Vergunning en melding</a></li>
+    <li><a href="/voorbereiding/contract-en-oplevering/">Contract en oplevering</a></li>
+    <li><a href="/kosten/">Kosten en budget</a></li>
+  </ul>
+</div>
+<div>
+  <h4>Hulpmiddelen</h4>
+  <ul>
+    <li><a href="/hulpmiddelen/verbouwbudget/">Verbouwbudget berekenen</a></li>
+    <li><a href="/hulpmiddelen/opleverchecklist/">Opleverchecklist</a></li>
+    <li><a href="/nieuws/">Nieuws</a></li>
+    <li><a href="/over/">Over deze gids</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+</div>
+
+  </div>
+  <div class="binnen voetonder">
+    <p>&copy; 2026 Grootinkluswerk.nl</p>
+    <p><a href="/privacybeleid/">Privacybeleid</a> <span class="sep">/</span> <a href="/cookiebeleid/">Cookiebeleid</a> <span class="sep">/</span> <a href="/contact/">Contact</a></p>
+  </div>
+</footer>
+<script>
+(function(){
+  var b=document.querySelector('.menuknop'),n=document.getElementById('hoofdmenu');
+  if(!b||!n)return;
+  b.addEventListener('click',function(){
+    var open=n.classList.toggle('open');
+    b.setAttribute('aria-expanded',open?'true':'false');
+  });
+})();
+</script>
+</body>
+</html>
