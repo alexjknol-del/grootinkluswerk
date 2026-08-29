@@ -36,7 +36,9 @@
 <h2>Welke gegevens worden verwerkt</h2>
 <h3>Bij het bezoeken van de site</h3>
 <p>De website wordt gehost bij Cloudflare Pages. De hostingpartij verwerkt technische gegevens die nodig zijn om de site te tonen en te beveiligen, waaronder het IP-adres, het tijdstip van het verzoek, de opgevraagde pagina en het type browser. Die verwerking vindt plaats op grond van een gerechtvaardigd belang: het beschikbaar en veilig houden van de website.</p>
-<p>Er wordt geen bezoekersstatistiek van derden geladen, geen advertentienetwerk, geen socialemediaknop en geen ingesloten inhoud van andere partijen. De pagina's laden geen externe bestanden.</p>
+<p>Er wordt geen bezoekersstatistiek van derden geladen, geen advertentienetwerk en geen socialemediaknop. De pagina's laden uit zichzelf geen externe bestanden.</p>
+<h3>Bij het afspelen van een video</h3>
+<p>Op enkele pagina's staat een video van het YouTube-kanaal van Kleine-Klussen. Die video wordt niet meegeladen met de pagina. Er staat een knop, en pas na een klik daarop wordt de video opgehaald bij youtube-nocookie.com. Vanaf dat moment verwerkt YouTube, onderdeel van Google, gegevens zoals het IP-adres en het apparaattype, en geldt het privacybeleid van die partij. Wie niet klikt, laadt niets.</p>
 <h3>Bij e-mail</h3>
 <p>Wie mailt naar info@grootinkluswerk.nl, verstuurt daarmee een e-mailadres en de inhoud van het bericht. Die gegevens worden gebruikt om het bericht te beantwoorden en daarna niet langer bewaard dan nodig. Er wordt geen mailinglijst opgebouwd en er worden geen e-mailadressen gedeeld met derden.</p>
 <h2>Cookies</h2>
@@ -103,10 +105,29 @@
 <script>
 (function(){
   var b=document.querySelector('.menuknop'),n=document.getElementById('hoofdmenu');
-  if(!b||!n)return;
-  b.addEventListener('click',function(){
-    var open=n.classList.toggle('open');
-    b.setAttribute('aria-expanded',open?'true':'false');
+  if(b&&n){
+    b.addEventListener('click',function(){
+      var open=n.classList.toggle('open');
+      b.setAttribute('aria-expanded',open?'true':'false');
+    });
+  }
+  document.querySelectorAll('.video').forEach(function(f){
+    var knop=f.querySelector('.videostart');
+    if(!knop)return;
+    knop.addEventListener('click',function(){
+      var id=f.getAttribute('data-video');
+      var d=document.createElement('div');
+      d.className='videoframe';
+      var i=document.createElement('iframe');
+      i.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
+      i.title=knop.querySelector('.videotekst').textContent;
+      i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      i.setAttribute('allowfullscreen','');
+      i.setAttribute('loading','lazy');
+      i.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+      d.appendChild(i);
+      knop.replaceWith(d);
+    });
   });
 })();
 </script>
