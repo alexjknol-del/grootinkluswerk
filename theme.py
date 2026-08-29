@@ -130,6 +130,23 @@ th{background:var(--vlak);font-weight:600}
 .knop.rand{background:transparent;color:var(--accent);border:1px solid var(--accent)}
 .knop.rand:hover{background:var(--vlak);color:var(--accent-donker)}
 
+/* video */
+.video{margin:1.6em 0;max-width:340px}
+.video .videostart{display:block;width:100%;aspect-ratio:9/16;border:1px solid var(--lijn);
+  border-radius:var(--radius);background:linear-gradient(160deg,#16202b 0%,#1c4f8b 100%);
+  color:#fff;cursor:pointer;padding:18px;text-align:left;position:relative;font:inherit}
+.video .videostart:hover{filter:brightness(1.08)}
+.video .videoplay{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;
+  border-radius:50%;background:rgba(255,255,255,.92)}
+.video .videoplay::after{content:"";position:absolute;left:23px;top:17px;border-style:solid;
+  border-width:12px 0 12px 19px;border-color:transparent transparent transparent var(--accent)}
+.video .videotekst{position:absolute;left:18px;right:18px;bottom:44px;font-weight:600;
+  font-size:1.02rem;line-height:1.35}
+.video .videobron{position:absolute;left:18px;bottom:20px;font-size:.82rem;opacity:.75}
+.video .videoframe{aspect-ratio:9/16;border-radius:var(--radius);overflow:hidden;border:1px solid var(--lijn)}
+.video .videoframe iframe{width:100%;height:100%;border:0;display:block}
+.video figcaption{font-size:.84rem;color:var(--ink-zacht);margin-top:8px}
+
 /* voet */
 .voet{background:#101a24;color:#c3ccd6;margin-top:44px;padding:36px 0 20px;font-size:.94rem}
 .voet a{color:#e6ecf2}
