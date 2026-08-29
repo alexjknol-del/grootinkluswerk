@@ -41,7 +41,7 @@
 <h2>Waar het misgaat</h2>
 <ul><li>Ventilatie te licht gekozen. Een badkamer zonder buitenraam vraagt mechanische afvoer met voldoende capaciteit, anders volgt schimmel op de kitranden binnen een jaar.</li><li>Leidingen niet ingemeten voordat de tegels besteld zijn. Een afvoer die tien centimeter verschuift, kost een halve dag hakwerk.</li><li>Sanitair te laat besteld. Levertijden van zes tot twaalf weken zijn gebruikelijk bij niet-voorraadmodellen.</li><li>Geen waterdichte laag onder de tegels in de doucheruimte. Tegels en voegen zijn niet waterdicht, de laag eronder is dat wel.</li></ul>
 <h2>Vergunning</h2>
-<p>Een badkamer binnen de bestaande indeling is vergunningvrij. Zodra er een dragende wand wijkt of er een raamopening bij komt, verandert dat. De vergunningcheck staat op https://omgevingswet.overheid.nl</p><div class="uitgelicht"><h2>Uitbesteden zonder aannemer</h2><p>Niet elke klus vraagt om een aannemer. Voor losse klussen als een lamp ophangen, meubelmontage, een kraan vervangen of een klemmende deur is een vakman per klus of per uur in te plannen bij Kleine-Klussen.nl. Online een datum en tijdslot kiezen, daarna komt een vakman uit het netwerk langs.</p><p class="knoprij"><a class="knop" href="https://www.kleine-klussen.nl/" rel="nofollow noopener" target="_blank">Kleine-Klussen.nl</a></p></div></section>
+<p>Een badkamer binnen de bestaande indeling is vergunningvrij. Zodra er een dragende wand wijkt of er een raamopening bij komt, verandert dat. De vergunningcheck staat op https://omgevingswet.overheid.nl</p><h2>In beeld</h2><figure class="video" data-video="BpgexVbsPTo"><button type="button" class="videostart"><span class="videoplay" aria-hidden="true"></span><span class="videotekst">Een kitnaad vervangen</span><span class="videobron">Kleine-Klussen.nl op YouTube</span></button><figcaption>De video staat op YouTube en wordt pas na een klik geladen, via youtube-nocookie.com. Vanaf dat moment geldt het privacybeleid van YouTube.</figcaption></figure><div class="uitgelicht"><h2>Uitbesteden zonder aannemer</h2><p>Niet elke klus vraagt om een aannemer. Voor losse klussen als een lamp ophangen, meubelmontage, een kraan vervangen of een klemmende deur is een vakman per klus of per uur in te plannen bij Kleine-Klussen.nl. Online een datum en tijdslot kiezen, daarna komt een vakman uit het netwerk langs.</p><p class="knoprij"><a class="knop" href="https://www.kleine-klussen.nl/" rel="nofollow noopener" target="_blank">Kleine-Klussen.nl</a></p></div></section>
 </main>
 <footer class="voet">
   <div class="binnen voetgrid">
@@ -91,10 +91,29 @@
 <script>
 (function(){
   var b=document.querySelector('.menuknop'),n=document.getElementById('hoofdmenu');
-  if(!b||!n)return;
-  b.addEventListener('click',function(){
-    var open=n.classList.toggle('open');
-    b.setAttribute('aria-expanded',open?'true':'false');
+  if(b&&n){
+    b.addEventListener('click',function(){
+      var open=n.classList.toggle('open');
+      b.setAttribute('aria-expanded',open?'true':'false');
+    });
+  }
+  document.querySelectorAll('.video').forEach(function(f){
+    var knop=f.querySelector('.videostart');
+    if(!knop)return;
+    knop.addEventListener('click',function(){
+      var id=f.getAttribute('data-video');
+      var d=document.createElement('div');
+      d.className='videoframe';
+      var i=document.createElement('iframe');
+      i.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
+      i.title=knop.querySelector('.videotekst').textContent;
+      i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      i.setAttribute('allowfullscreen','');
+      i.setAttribute('loading','lazy');
+      i.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+      d.appendChild(i);
+      knop.replaceWith(d);
+    });
   });
 })();
 </script>
