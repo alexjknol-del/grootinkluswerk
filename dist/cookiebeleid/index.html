@@ -32,7 +32,9 @@
 <nav class="kruimels" aria-label="Kruimelpad"><a href="/">Home</a> <span class="sep">/</span> <span>Cookiebeleid</span></nav>
 <section class="smal"><h1>Cookiebeleid</h1><p>Laatste wijziging: 29 augustus 2026.</p>
 <h2>Geen cookies</h2>
-<p>Grootinkluswerk.nl plaatst geen cookies. Er is geen analysepakket, geen advertentienetwerk, geen socialemediaknop en geen ingesloten inhoud van derden. Daarom staat er ook geen cookiemelding op deze site: een toestemmingsvraag zonder cookies heeft geen functie.</p>
+<p>Grootinkluswerk.nl plaatst zelf geen cookies. Er is geen analysepakket, geen advertentienetwerk en geen socialemediaknop. Daarom staat er geen cookiemelding op deze site: een toestemmingsvraag zonder cookies heeft geen functie.</p>
+<h2>Video's</h2>
+<p>Op enkele pagina's staat een video van het YouTube-kanaal van Kleine-Klussen. Die video laadt niet mee met de pagina. Er staat een knop, en pas na een klik daarop wordt de video opgehaald bij youtube-nocookie.com, de variant van YouTube die geen cookies plaatst voor gepersonaliseerde advertenties. YouTube kan daarbij wel gegevens vastleggen die nodig zijn om de video af te spelen, en op dat moment geldt het privacybeleid van YouTube en Google. Wie de knop niet gebruikt, laadt geen enkel bestand van YouTube.</p>
 <h2>Wat er technisch wel gebeurt</h2>
 <p>De website draait op Cloudflare Pages. De hostingpartij kan een technische voorziening inzetten om misbruik en overbelasting tegen te gaan. Dat is geen cookie voor analyse of advertenties en er wordt geen bezoekersprofiel mee opgebouwd.</p>
 <h2>Lokale opslag</h2>
@@ -92,10 +94,29 @@
 <script>
 (function(){
   var b=document.querySelector('.menuknop'),n=document.getElementById('hoofdmenu');
-  if(!b||!n)return;
-  b.addEventListener('click',function(){
-    var open=n.classList.toggle('open');
-    b.setAttribute('aria-expanded',open?'true':'false');
+  if(b&&n){
+    b.addEventListener('click',function(){
+      var open=n.classList.toggle('open');
+      b.setAttribute('aria-expanded',open?'true':'false');
+    });
+  }
+  document.querySelectorAll('.video').forEach(function(f){
+    var knop=f.querySelector('.videostart');
+    if(!knop)return;
+    knop.addEventListener('click',function(){
+      var id=f.getAttribute('data-video');
+      var d=document.createElement('div');
+      d.className='videoframe';
+      var i=document.createElement('iframe');
+      i.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
+      i.title=knop.querySelector('.videotekst').textContent;
+      i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      i.setAttribute('allowfullscreen','');
+      i.setAttribute('loading','lazy');
+      i.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+      d.appendChild(i);
+      knop.replaceWith(d);
+    });
   });
 })();
 </script>
