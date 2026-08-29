@@ -81,6 +81,25 @@ def render(md):
     return '\n'.join(out)
 
 
+# ---------------------------------------------------------------- video
+
+def video(vid, titel, toelichting=None):
+    """Klik-om-te-laden YouTube-embed. Laadt niets tot de bezoeker klikt."""
+    toelichting = toelichting or (
+        'De video staat op YouTube en wordt pas na een klik geladen, via '
+        'youtube-nocookie.com. Vanaf dat moment geldt het privacybeleid van YouTube.')
+    return (
+        '<figure class="video" data-video="%s">'
+        '<button type="button" class="videostart">'
+        '<span class="videoplay" aria-hidden="true"></span>'
+        '<span class="videotekst">%s</span>'
+        '<span class="videobron">Kleine-Klussen.nl op YouTube</span>'
+        '</button>'
+        '<figcaption>%s</figcaption>'
+        '</figure>'
+        % (html.escape(vid, quote=True), html.escape(titel), html.escape(toelichting)))
+
+
 # ---------------------------------------------------------------- site
 
 class Site:
@@ -177,10 +196,29 @@ class Site:
 <script>
 (function(){{
   var b=document.querySelector('.menuknop'),n=document.getElementById('hoofdmenu');
-  if(!b||!n)return;
-  b.addEventListener('click',function(){{
-    var open=n.classList.toggle('open');
-    b.setAttribute('aria-expanded',open?'true':'false');
+  if(b&&n){{
+    b.addEventListener('click',function(){{
+      var open=n.classList.toggle('open');
+      b.setAttribute('aria-expanded',open?'true':'false');
+    }});
+  }}
+  document.querySelectorAll('.video').forEach(function(f){{
+    var knop=f.querySelector('.videostart');
+    if(!knop)return;
+    knop.addEventListener('click',function(){{
+      var id=f.getAttribute('data-video');
+      var d=document.createElement('div');
+      d.className='videoframe';
+      var i=document.createElement('iframe');
+      i.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
+      i.title=knop.querySelector('.videotekst').textContent;
+      i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      i.setAttribute('allowfullscreen','');
+      i.setAttribute('loading','lazy');
+      i.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+      d.appendChild(i);
+      knop.replaceWith(d);
+    }});
   }});
 }})();
 </script>
