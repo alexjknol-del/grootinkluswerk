@@ -10,16 +10,17 @@ from datetime import date
 
 def _inline(text):
     text = html.escape(text, quote=False)
-    text = re.sub(r'\[([^\]]+)\]\(([^)\s]+)(?:\s+"nofollow")?\)',
-                  lambda m: _link(m.group(1), m.group(2)), text)
+    text = re.sub(r'\[([^\]]+)\]\(([^)\s]+)(?:\s+"(nofollow|dofollow)")?\)',
+                  lambda m: _link(m.group(1), m.group(2), m.group(3)), text)
     text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', text)
     return text
 
 
-def _link(label, href):
+def _link(label, href, markering=None):
     if href.startswith('http'):
-        return ('<a href="%s" rel="nofollow noopener" target="_blank">%s</a>'
-                % (href, label))
+        rel = 'noopener' if markering == 'dofollow' else 'nofollow noopener'
+        return ('<a href="%s" rel="%s" target="_blank">%s</a>'
+                % (href, rel, label))
     return '<a href="%s">%s</a>' % (href, label)
 
 

@@ -8,13 +8,25 @@ from collections import Counter
 DIST = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist')
 
 EIGEN_HOST = 'grootinkluswerk.nl'
-TOEGESTANE_HOSTS = {'www.kleine-klussen.nl'}
+TOEGESTANE_HOSTS = {
+    'www.kleine-klussen.nl',
+    'www.boorkopen.nl',
+    'www.mesaproducts.nl',
+    'stroommannen.nl',
+}
 TOEGESTANE_ANKERS = {
     'kleine-klussen.nl',
     'Kleine-Klussen.nl',
     'https://www.kleine-klussen.nl/',
     'www.kleine-klussen.nl',
+    'boorkopen.nl',
+    'boorkopen.nl/houtboren/',
+    'Mesa Products',
+    'mesaproducts.nl',
+    'Stroommannen',
+    'stroommannen.nl',
 }
+DOFOLLOW_HOSTS = {'www.boorkopen.nl', 'www.mesaproducts.nl', 'stroommannen.nl'}
 AANSPREEK = ['je', 'jij', 'jou', 'jouw', 'jullie', 'uw', 'we', 'wij', 'ons', 'onze']
 DUMMY = ['lorem ipsum', 'placeholder', 'tekst volgt', 'nog invullen', 'todo', 'xxx',
          'voorbeeldtekst', 'vul hier', 'dummy']
@@ -155,7 +167,12 @@ for pad in sorted(bestanden):
             host = re.sub(r'^https?://([^/]+).*$', r'\1', href)
             if host not in TOEGESTANE_HOSTS:
                 fouten.append('%s: externe host niet toegestaan: %s' % (rel, host))
-            if 'nofollow' not in attrs or 'noopener' not in attrs:
+            if host in DOFOLLOW_HOSTS:
+                if 'noopener' not in attrs:
+                    fouten.append('%s: externe link zonder noopener: %s' % (rel, href))
+                if 'nofollow' in attrs:
+                    fouten.append('%s: klantlink hoort dofollow te zijn: %s' % (rel, href))
+            elif 'nofollow' not in attrs or 'noopener' not in attrs:
                 fouten.append('%s: externe link zonder nofollow noopener: %s' % (rel, href))
             if label not in TOEGESTANE_ANKERS:
                 fouten.append('%s: ankertekst niet toegestaan: "%s"' % (rel, label))
