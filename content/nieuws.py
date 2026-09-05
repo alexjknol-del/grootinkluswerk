@@ -2,6 +2,110 @@
 """Nieuwsartikelen. Elke tuple: slug, datum, rfc822, titel, description, samenvatting, tekst."""
 
 ARTIKELEN = [
+    ("boor-per-materiaal-verbouwing", "2026-09-05", "Fri, 05 Sep 2026 09:00:00 +0200",
+     "Welke boor bij welk materiaal tijdens een verbouwing",
+     "Beton, kalkzandsteen, hout en tegels vragen elk een ander boortype. Overzicht van de keuze, de toerentallen en de veelgemaakte fouten.",
+     "Beton vraagt klopstand, kalkzandsteen juist niet, en in hout bepaalt de gatdiameter het boortype. Een overzicht per ondergrond, met de fouten die pluggen laten loslaten.",
+     """
+Bij een verbouwing wordt in een week door meer materiaalsoorten geboord dan in de tien jaar daarvoor. Beton, kalkzandsteen, gasbeton, hout, gipsplaat en tegels liggen in hetzelfde huis binnen enkele meters van elkaar, en elk van die materialen vraagt om een ander boortype en een andere instelling van de machine.
+
+## Steenachtige ondergronden
+
+Het onderscheid dat de meeste schade voorkomt, is dat tussen beton en de zachtere steensoorten. Beton vraagt om een hamerboor met hardmetalen punt, in een boorhamer met SDS-opname. Kalkzandsteen en gasbeton laten zich juist beter zonder klopstand boren: de klopfunctie breekt daar de rand van het gat weg, waardoor een plug niet meer houdt. Een gat dat te ruim is geworden, wordt zelden nog betrouwbaar.
+
+Bij gewapend beton is de kans op wapening reeel. Een boor die op staal stuit, boort niet verder en raakt oververhit. Op dat moment is doorduwen de verkeerde reactie: het gat een centimeter verplaatsen of een kernboor gebruiken is de route die de wapening intact laat, wat constructief van belang is.
+
+## Hout
+
+In hout bepaalt de gewenste gatdiameter het type. Tot ongeveer tien millimeter volstaat een gewone houtspiraalboor met centreerpunt. Daarboven wordt gekozen tussen een speedboor voor snel doorboren, een slangenboor voor diepe gaten in balken en een forstnerboor voor een vlakke bodem, bijvoorbeeld bij potscharnieren van keukenkastjes.
+
+Wie in hardhout of in verlijmd plaatmateriaal boort, merkt dat toerental belangrijker is dan kracht. Te snel draaien verbrandt de snijkant, waarna de boor stomp is en het gat rafelt. Een lagere snelheid met gelijkmatige druk levert een schoner gat en een langere levensduur van de boor.
+
+## Tegels en glas
+
+Een tegelboor of glasboor heeft een speerpunt en werkt zonder klopstand, met water als koeling. Op geglazuurd aardewerk is een stukje afplaktape genoeg om wegglijden te voorkomen. Op gres of keramiek is dat niet genoeg en is een diamantboor de enige route die de tegel heel laat.
+
+## Wat er misgaat
+
+De drie terugkerende fouten zijn dezelfde: klopstand aan in een materiaal dat dat niet verdraagt, een versleten boor die met meer druk wordt gecompenseerd, en een gat dat te ondiep is voor de plug. Dat laatste komt doordat het stof in het gat blijft zitten. Een gat uitzuigen of uitblazen voor de plug erin gaat, scheelt meer houdkracht dan een duurdere plug.
+
+Bij een verbouwing waarin leidingen zijn verlegd, hoort daar nog een stap voor: controleren waar de leidingen lopen. Na het stucwerk is dat niet meer zichtbaar, en een foto van de wanden voordat ze dichtgingen is op dat moment meer waard dan welke leidingzoeker ook.
+
+Tot slot loont het om de boren na afloop te sorteren in plaats van in een bak te gooien. Een boor waarvan de maat niet meer leesbaar is, wordt bij de volgende klus op gevoel gekozen, en dat is precies hoe een gat van acht millimeter voor een plug van tien ontstaat. Een sortiment met vaste plaatsen per maat gaat jaren mee en scheelt bij elke klus zoektijd.
+
+> Losse boren, borensets, gatenzagen en zaagbladen zijn per stuk te bestellen bij een gespecialiseerde webshop. Het assortiment loopt van SDS-boren voor beton tot slangenboren, speedboren en forstnerboren voor hout.
+
+> [boorkopen.nl](https://www.boorkopen.nl/betonboren/ "dofollow") en [boorkopen.nl/houtboren/](https://www.boorkopen.nl/houtboren/ "dofollow")
+"""),
+
+    ("lijm-kiezen-bij-verbouwen", "2026-09-05", "Fri, 05 Sep 2026 09:00:00 +0200",
+     "Lijmen tijdens een verbouwing: welke soort waarvoor",
+     "Constructielijm, montagelijm, pvc-lijm en secondelijm doen elk iets anders. Overzicht van de keuze per ondergrond en de fouten die achteraf zichtbaar worden.",
+     "Montagelijm, constructielijm, pvc-lijm en epoxy doen elk iets anders. De ondergrond bepaalt de hechting vaker dan het merk op de koker.",
+     """
+Lijm is het onderdeel van een verbouwing waar het minst over nagedacht wordt en waar achteraf het vaakst iets loslaat. De keuze lijkt beperkt tot een koker uit het schap, terwijl het verschil tussen twee kokers die naast elkaar staan bepaalt of een plint over vijf jaar nog vastzit.
+
+## Vier categorieen
+
+Voor het gros van het werk in een woning volstaat een indeling in vier groepen. Montagelijm voor plinten, panelen en dorpels, waarbij een dikke rups het hoogteverschil van de ondergrond opvangt. Constructielijm voor houtverbindingen die belast worden. Pvc-lijm voor kunststof leidingwerk, die geen lijm is in de gebruikelijke zin maar het materiaal aan het oppervlak oplost en laat versmelten. En secondelijm voor kleine reparaties waar geen klemtijd mogelijk is.
+
+Daarnaast is er twee-componenten epoxy, die als enige groep gaten opvult en tegelijk hecht. Dat maakt epoxy geschikt voor herstel van houtrot en voor het vastzetten van draadeind in steen, en ongeschikt voor werk waar naderhand nog iets los moet kunnen.
+
+## De ondergrond bepaalt meer dan het merk
+
+Hechting mislukt zelden door de lijm en meestal door wat eronder zit. Stof, cementsluier, oude verf die zelf loslaat en vooral vocht zijn de terugkerende oorzaken. Een muur die net gestuukt is, bevat weken later nog bouwvocht, en een montagelijm die op vocht wordt aangebracht droogt aan de buitenkant uit terwijl de kern zacht blijft.
+
+Kunststoffen vormen een eigen probleem. Polyethyleen en polypropyleen, herkenbaar aan de codes PE en PP, hebben een oppervlak waar vrijwel niets op hecht zonder voorbehandeling. Wie daar een gewone lijm op gebruikt, ziet de verbinding binnen enkele weken loslaten.
+
+## Klemtijd en uithardingstijd
+
+Deze twee worden vaak door elkaar gehaald. De klemtijd is hoe lang het werk vastgezet moet blijven, de uithardingstijd hoe lang het duurt tot de verbinding belastbaar is. Bij constructielijm loopt dat verschil op tot een etmaal. Een deurkozijn dat na een uur wordt losgemaakt omdat het aanvoelt als vast, verliest een groot deel van zijn eindsterkte.
+
+## Verwijderen
+
+Wat gelijmd is, moet soms weer los. Lijmresten op een pvc-vloer, op laminaat of op een keukenblad zijn met de verkeerde methode in een keer verpest. Een lijmverwijderaar die op het materiaal is afgestemd werkt daar beter dan aceton of een mes, zeker bij vloeren met een dunne toplaag.
+
+Bewaren is het laatste punt. Lijm heeft een houdbaarheidsdatum en die staat er niet voor de sier: een aangebroken koker montagelijm vormt een vel, een fles secondelijm trekt vocht aan en polyurethaanlijm gaat in de koker uitharden. Een koker die na een halfjaar traag uit de spuit komt, is opgebruikt, ook al zit hij nog vol. Wie dat product toch gebruikt op een zichtbare afwerking, herstelt dat werk binnen een jaar opnieuw.
+
+> Een lijmwijzer per materiaalcombinatie neemt het gokwerk weg: aangeven wat op wat gelijmd wordt, en welke lijmsoort daarbij past. Daarnaast zijn er losse pagina's over pvc-lijm, glaslijm en het verwijderen van lijmresten.
+
+> [Mesa Products](https://www.mesaproducts.nl/lijmwijzer/ "dofollow") en [mesaproducts.nl](https://www.mesaproducts.nl/pvc-lijm/ "dofollow")
+"""),
+
+    ("groepenkast-bij-een-verbouwing", "2026-09-05", "Fri, 05 Sep 2026 09:00:00 +0200",
+     "De groepenkast bij een verbouwing: wanneer uitbreiden moet",
+     "Een nieuwe keuken, een warmtepomp of een laadpunt vraagt vrijwel altijd om extra groepen. Overzicht van de momenten waarop de meterkast meegaat in de verbouwing.",
+     "Inductie, een warmtepomp of een laadpunt vraagt vrijwel altijd extra groepen. Een verzwaring loopt via de netbeheerder en hoort daarom vroeg in de planning.",
+     """
+In vrijwel elke verbouwingsbegroting staat de meterkast onderaan, als die er al in staat. In de uitvoering blijkt hij regelmatig het onderdeel dat de planning bepaalt, omdat een nieuwe keuken, een warmtepomp of een uitbouw meer groepen vraagt dan de bestaande kast heeft.
+
+## De momenten waarop het speelt
+
+Er zijn een paar ingrepen die vrijwel altijd tot uitbreiding leiden. Een keuken met inductie vraagt een aparte kookgroep, in veel gevallen een perilexaansluiting op krachtstroom. Een warmtepomp of airco vraagt een eigen groep. Een laadpunt voor een auto vraagt er nog een, met een eigen aardlekbeveiliging. Een uitbouw of zolderkamer brengt extra lichtpunten en wandcontactdozen mee die niet allemaal op een bestaande groep passen.
+
+Daar komt bij dat oudere kasten vaak maar een aardlekschakelaar voor het hele huis hebben. Dat betekent dat een storing in de badkamer ook de koelkast en de cv-ketel uitschakelt. Bij een verbouwing is dat het moment om die verdeling opnieuw op te zetten, omdat de wanden toch al open zijn.
+
+## Wat een uitbreiding inhoudt
+
+Uitbreiden kan betekenen dat er groepen bijkomen in de bestaande kast, of dat de hele kast wordt vervangen. Dat laatste gebeurt wanneer er geen ruimte meer is, wanneer de kast nog met stoppen werkt of wanneer de hoofdaansluiting verzwaard moet worden. Een verzwaring loopt via de netbeheerder en heeft een eigen doorlooptijd, wat de reden is dat dit onderdeel vroeg in de planning hoort en niet in de laatste weken.
+
+Bij een woning met een oude installatie speelt daarnaast de vraag of de bestaande bedrading nog voldoet. Leidingen zonder aarde in de badkamer of keuken zijn niet toegestaan bij nieuw werk, en dat komt regelmatig pas boven water als de wanden open liggen.
+
+## Volgorde in de bouwplanning
+
+Elektrawerk komt in twee rondes. Eerst het aanleggen van leidingen en dozen voordat er gestuukt wordt, daarna het afmonteren nadat de wanden en vloeren klaar zijn. Tussen die twee rondes zit vaak weken. Wie de eerste ronde mist, hakt later alsnog sleuven in vers stucwerk.
+
+## Keuring en oplevering
+
+Na afronding hoort er een meting plaats te vinden en een rapport van de installatie. Dat stuk is bij verkoop van de woning en bij schade aan apparatuur het bewijs dat het werk volgens de norm is uitgevoerd. Zonder dat papier is achteraf niet meer aan te tonen wie welk deel heeft aangelegd.
+
+Ook de plaats van de kast telt mee. Bij een uitbouw of een verplaatste voordeur staat de meterkast soms opeens midden in de nieuwe indeling. Verplaatsen kan, maar raakt de aansluiting van de netbeheerder en is daarmee geen ingreep die tussendoor gebeurt. Dit is een van de weinige onderdelen die al bij de eerste tekening op tafel horen te liggen in plaats van bij de uitvoering.
+
+> Groepenkast vervangen of uitbreiden, kookgroepen aanleggen, laadpunten en verlichting horen bij het werk van een elektrotechnisch installateur, zowel voor woningen als voor bedrijfspanden.
+
+> [Stroommannen](https://stroommannen.nl/particulier/ "dofollow") en [stroommannen.nl](https://stroommannen.nl/ "dofollow")
+"""),
+
     ("bouwkosten-woningbouw-juni-2026", "2026-08-14", "Fri, 14 Aug 2026 09:00:00 +0200",
      "Bouwkosten woningbouw vijf procent hoger dan een jaar eerder",
      "CBS meldt over juni 2026 een stijging van vijf procent in de bouwkosten voor woningbouw. Loonkosten stegen harder dan materiaalkosten.",
