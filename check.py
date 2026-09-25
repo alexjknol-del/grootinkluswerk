@@ -9,12 +9,16 @@ DIST = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist')
 
 EIGEN_HOST = 'grootinkluswerk.nl'
 TOEGESTANE_HOSTS = {
+    'www.hashop.nl',
+    'koelklima.nl',
     'www.kleine-klussen.nl',
     'www.boorkopen.nl',
     'www.mesaproducts.nl',
     'stroommannen.nl',
 }
 TOEGESTANE_ANKERS = {
+    'Home automation',
+    'Airco onderhoud Sneek',
     'kleine-klussen.nl',
     'Kleine-Klussen.nl',
     'https://www.kleine-klussen.nl/',
@@ -26,7 +30,7 @@ TOEGESTANE_ANKERS = {
     'Stroommannen',
     'stroommannen.nl',
 }
-DOFOLLOW_HOSTS = {'www.boorkopen.nl', 'www.mesaproducts.nl', 'stroommannen.nl'}
+DOFOLLOW_HOSTS = {'www.hashop.nl', 'koelklima.nl', 'www.boorkopen.nl', 'www.mesaproducts.nl', 'stroommannen.nl'}
 AANSPREEK = ['je', 'jij', 'jou', 'jouw', 'jullie', 'uw', 'we', 'wij', 'ons', 'onze']
 DUMMY = ['lorem ipsum', 'placeholder', 'tekst volgt', 'nog invullen', 'todo', 'xxx',
          'voorbeeldtekst', 'vul hier', 'dummy']
