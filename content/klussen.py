@@ -164,6 +164,16 @@ uitvoering. De voorwaarden staan op https://www.rvo.nl
 
 Drie tot zes weken voor een complete zolderkamer, inclusief wachttijd op stucwerk en
 schilderwerk.
+
+## Warmte in de zomer
+
+Ook met goede isolatie wordt een zolderkamer onder de pannen in de zomer warm. Een
+split-airco of een lucht-luchtwarmtepomp koelt in de zomer en verwarmt in het voorjaar en
+najaar. De buitenunit en de leidingen horen in de planning voordat de wanden worden
+afgewerkt, en de unit vraagt een eigen groep in de meterkast. Daarna volgt periodiek
+onderhoud: filters reinigen, de druk controleren en de condensafvoer vrijhouden.
+[Airco onderhoud Sneek](https://koelklima.nl/airco-onderhoud/sneek/ "dofollow") en de rest
+van Friesland verzorgt bijvoorbeeld een klimaatinstallateur uit Drachten.
 """),
     # ------------------------------------------------------------------
     ("dakkapel-plaatsen", "Dakkapel plaatsen",
@@ -264,6 +274,15 @@ scheurt de aansluiting open.
 - De buren worden pas geïnformeerd als de kraan er staat. Bij bouwen op of tegen de erfgrens is overleg vooraf de goedkoopste verzekering tegen vertraging.
 - De kozijnen worden besteld voordat de exacte dagmaten na het metselwerk bekend zijn.
 - Er wordt geen rekening gehouden met de afvoer van hemelwater vanaf het nieuwe dak.
+
+## Elektra en besturing meenemen
+
+Een uitbouw is het moment om de installatie in een keer goed te zetten. Wanden en plafond
+staan open, dus extra leidingen voor schakelaars, sensoren, zonwering of een camera bij de
+achterdeur kosten nu weinig extra werk. Wie later verlichting en verwarming centraal wil
+bedienen, laat de elektricien lege leidingen en een voedingspunt bij de meterkast
+aanleggen. Modules en hardware voor [Home automation](https://www.hashop.nl/ "dofollow")
+zijn daarna in stappen toe te voegen, zonder opnieuw sleuven te hakken in vers stucwerk.
 """),
     # ------------------------------------------------------------------
     ("muurdoorbraak", "Muurdoorbraak en dragende wanden",
