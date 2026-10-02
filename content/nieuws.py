@@ -2,6 +2,35 @@
 """Nieuwsartikelen. Elke tuple: slug, datum, rfc822, titel, description, samenvatting, tekst."""
 
 ARTIKELEN = [
+    ('car-verzekering-bij-een-verbouwing', "2026-10-02", "Fri, 02 Oct 2026 09:00:00 +0200",
+     'Een CAR-verzekering bij een grote verbouwing: wanneer die zinvol is',
+     'Bij een aanbouw of renovatie is niet vanzelf duidelijk wie schade aan het werk betaalt. Wanneer een CAR-verzekering voor de huiseigenaar zinvol is.',
+     'Tijdens een verbouwing is de woning half open en lopen er meerdere partijen rond. Wie schade aan het werk of de bestaande woning betaalt, is niet altijd vanzelf geregeld.',
+     """
+Een aanbouw, een nieuwe verdieping of een volledige renovatie duurt al snel enkele maanden. In die periode staat de woning deels open, ligt er materiaal in de tuin en werken er verschillende vakmensen door elkaar. Een stormnacht met een dak dat nog niet dicht is, een gestolen partij kozijnen of een steiger die tegen de auto van de buren valt: het zijn geen uitzonderlijke situaties op een bouwplaats.
+
+De vraag is dan wie de schade draagt. De opstalverzekering dekt schade aan een huis in verbouwing lang niet altijd, en de aansprakelijkheidsverzekering van een vakman dekt schade aan anderen, maar niet de schade aan het werk zelf. Tussen die twee polissen zit een gat. Daar is de CAR-verzekering voor bedoeld, wat staat voor Construction All Risks.
+
+## Wat een CAR-verzekering dekt
+
+De dekking bestaat uit rubrieken. De kern wordt gevormd door het werk, de aansprakelijkheid en de bestaande eigendommen. Het werk is het bouwwerk tijdens de uitvoering, met schade door brand, storm, vandalisme, een fout tijdens het werk of het stelen van materialen die al verwerkt zijn. Onder aansprakelijkheid valt schade die bij het werk aan anderen ontstaat, zoals scheuren in het pand van de buren. Bij een verbouwing zijn de bestaande eigendommen het belangrijkst: het huis waaraan gewerkt wordt en de inboedel die erin staat.
+
+Particulieren kunnen de verzekering als opdrachtgever afsluiten. Het werk, de bestaande woning en de aansprakelijkheid tijdens de bouw vallen dan onder één polis, ook als er meerdere partijen op het werk zijn. Een CAR-verzekering voor een particulier bouwproject is onder meer te regelen via [Snelvoorelkaar](https://snelvoorelkaar.nl/verzekeringen/car-verzekering/ "dofollow"), waar de premie voor een verbouwing of nieuwbouw in eigen beheer vanaf 355 euro per project begint.
+
+## Aannemer of losse vakmensen
+
+Of de huiseigenaar zelf een CAR-verzekering nodig heeft, hangt vooral af van de opzet van de verbouwing. Een hoofdaannemer die het hele werk aanneemt, heeft vaak een doorlopende CAR-polis die alle projecten in een jaar dekt. Dan is het zaak te vragen of de verbouwing daaronder valt en of de bestaande woning is meeverzekerd. Die rubriek is bij verbouw de belangrijkste en staat niet automatisch op elke polis.
+
+Anders ligt het wanneer de eigenaar zelf de regie voert en losse zzp-vakmensen inhuurt: een timmerman voor de aanbouw, een stukadoor, een installateur. Ieder heeft dan doorgaans een eigen bedrijfsaansprakelijkheidsverzekering, en wat een zelfstandige in de bouw verder verzekert staat op [https://snelvoorelkaar.nl/branche/verzekeringen-voor-zzpers-in-de-bouwnijverheid/](https://snelvoorelkaar.nl/branche/verzekeringen-voor-zzpers-in-de-bouwnijverheid/ "dofollow"). Geen van die polissen dekt echter het werk als geheel. Een CAR-verzekering op naam van de opdrachtgever voorkomt dat na een schade discussie ontstaat over wie welk deel betaalt.
+
+## Wat er niet onder valt
+
+Ook een CAR-verzekering heeft grenzen. Opzet, normale slijtage, boetes en vertragingsschade zijn vaste uitsluitingen. Het herstel van een fout zelf valt er vaak buiten, terwijl de schade die door die fout ontstaat wel gedekt is. Een verkeerd gestorte vloer wordt dus niet vergoed, maar de lekkage die daardoor in de kelder ontstaat meestal wel. Verder geldt een eigen risico per gebeurtenis, dat voor bestaande eigendommen doorgaans hoger ligt dan voor het werk zelf.
+
+## Verplicht of niet
+
+Een CAR-verzekering is niet wettelijk verplicht. Opdrachtgevers eisen zo'n polis vaak van aannemers, maar een particulier die zelf de regie voert, maakt die afweging zelf. De polis loopt van de start van het werk tot de oplevering, met daarna een onderhoudstermijn van meestal zes tot twaalf maanden. Schade die tijdens de bouw is ontstaan en pas in die periode zichtbaar wordt, valt dan nog onder de dekking. Daarnaast loont het om de opstalverzekeraar voor de start te melden dat er verbouwd wordt.
+"""),
     ("boor-per-materiaal-verbouwing", "2026-09-05", "Fri, 05 Sep 2026 09:00:00 +0200",
      "Welke boor bij welk materiaal tijdens een verbouwing",
      "Beton, kalkzandsteen, hout en tegels vragen elk een ander boortype. Overzicht van de keuze, de toerentallen en de veelgemaakte fouten.",
