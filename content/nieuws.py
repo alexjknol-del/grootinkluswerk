@@ -2,7 +2,7 @@
 """Nieuwsartikelen. Elke tuple: slug, datum, rfc822, titel, description, samenvatting, tekst."""
 
 ARTIKELEN = [
-    ('car-verzekering-bij-een-verbouwing', "2026-10-02", "Fri, 02 Oct 2026 09:00:00 +0200",
+    ('car-verzekering-bij-een-verbouwing', "2026-09-07", "Mon, 07 Sep 2026 09:00:00 +0200",
      'Een CAR-verzekering bij een grote verbouwing: wanneer die zinvol is',
      'Bij een aanbouw of renovatie is niet vanzelf duidelijk wie schade aan het werk betaalt. Wanneer een CAR-verzekering voor de huiseigenaar zinvol is.',
      'Tijdens een verbouwing is de woning half open en lopen er meerdere partijen rond. Wie schade aan het werk of de bestaande woning betaalt, is niet altijd vanzelf geregeld.',
