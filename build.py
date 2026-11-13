@@ -56,6 +56,7 @@ FOOTERCOLS = """
     <li><a href="/voorbereiding/vergunning-en-melding/">Vergunning en melding</a></li>
     <li><a href="/voorbereiding/contract-en-oplevering/">Contract en oplevering</a></li>
     <li><a href="/kosten/">Kosten en budget</a></li>
+    <li><a href="/partners/">Partners</a></li>
   </ul>
 </div>
 <div>
@@ -815,6 +816,14 @@ site.add('/404/', T('Pagina niet gevonden'),
          h1='Pagina niet gevonden')
 
 # ---------------------------------------------------------------- schrijven
+
+# ---------------------------------------------------------------- partners
+PARTNERS = '<div class="tekstlay zonder"><div class="tekst">\n<h1>Partners</h1>\n<p>Grootinkluswerk.nl verwijst hier naar externe bronnen over verbouwen, vergunningen en bouwkosten.</p>\n<h2>Milieu Centraal</h2>\n<p>Milieu Centraal geeft onafhankelijke voorlichting over isolatie, installaties en verduurzaming. <a href="https://www.milieucentraal.nl" target="_blank" rel="noopener">Milieu Centraal</a></p>\n<h2>Vereniging Eigen Huis</h2>\n<p>Vereniging Eigen Huis informeert woningeigenaren over verbouwen, aannemers en oplevering. <a href="https://www.eigenhuis.nl" target="_blank" rel="noopener">Vereniging Eigen Huis</a></p>\n</div></div>'
+
+site.add('/partners/', T('Partners'),
+         'Externe bronnen over verbouwen, vergunningen en bouwkosten waar Grootinkluswerk.nl naar verwijst.',
+         PARTNERS, h1='Partners', priority='0.4')
+
 if __name__ == '__main__':
     aantal = site.build('dist')
     site.rss('dist', [dict(title=t, path='/nieuws/%s/' % s, rfc822=rfc, summary=sam)
